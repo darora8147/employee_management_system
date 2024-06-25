@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Employee Details</h2>
+    <div *ngIf="employee">
+      <img [src]="'assets/avatars/' + employee.avatar" alt="{{ employee.name }}">
+      <p><strong>Name:</strong> {{ employee.name }}</p>
+      <p><strong>Company Name:</strong> {{ employee.companyName }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+      <p><strong>Contact No.:</strong> {{ employee.contactNo }}</p>
+      <p><strong>Designation:</strong> {{ employee.designation }}</p>
+      <br>
+      <button [routerLink]="['/edit', employee.id]" class="btn btn-warning">Edit</button>
+      <button (click)="confirmDelete()" class="btn btn-danger">Delete</button>
+    </div>
+  </div>

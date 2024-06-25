@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Employee List</h2>
+    <button routerLink="/add" class="btn btn-primary">Add New Employee</button>
+    <input type="text" placeholder="Search by Name or Email" [(ngModel)]="searchTerm" (ngModelChange)="filterEmployees()">
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Company Name</th>
+          <th>Email</th>
+          <th>Contact No.</th>
+          <th>Designation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of filteredEmployees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.companyName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.contactNo }}</td>
+          <td>{{ employee.designation }}</td>
+          <td>
+            <button [routerLink]="['/details', employee.id]" class="btn btn-info">View</button>
+            <button [routerLink]="['/edit', employee.id]" class="btn btn-warning">Edit</button>
+            <button (click)="confirmDelete(employee.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
